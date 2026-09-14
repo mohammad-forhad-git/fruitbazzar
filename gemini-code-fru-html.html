@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FruitBazar (ফ্রুট বাজার) | তাজা ও প্রিমিয়াম ফল ও খাদ্যপণ্য</title>
+  <meta name="description" content="তাজা ও কেমিক্যালমুক্ত প্রিমিয়াম ফলের বিশ্বস্ত প্রতিষ্ঠান FruitBazar।">
+  
+  <!-- Google Fonts: Hind Siliguri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="top-bar">
+    <span>🍎 ১০০% তাজা ও ফরমালিনমুক্ত ফলের নিশ্চয়তা | হটলাইন: <a href="tel:01700000000">০১৭০০-০০০০০০</a></span>
+  </div>
+
+  <!-- Main Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon"><i class="fa-solid fa-apple-whole"></i></div>
+        <div class="logo-text">
+          <span class="brand-name">Fruit<span class="highlight">Bazar</span></span>
+          <span class="brand-tagline">তাজা ফলের বিশ্বস্ত বাজার</span>
+        </div>
+      </a>
+
+      <div class="search-box desktop-only">
+        <input type="text" id="searchInput" placeholder="আম, আপেল, মাল্টা, খেজুর খুঁজুন..." oninput="handleSearch()">
+        <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+
+      <div class="header-actions">
+        <a href="tel:01700000000" class="btn-call desktop-only">
+          <i class="fa-solid fa-phone"></i>
+          <span>সরাসরি কল</span>
+        </a>
+        <button class="cart-btn" onclick="openCartModal()">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Search -->
+    <div class="mobile-search-container mobile-only">
+      <div class="search-box">
+        <input type="text" id="mobileSearchInput" placeholder="ফল বা আইটেম খুঁজুন..." oninput="handleMobileSearch()">
+        <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section container">
+    <div class="hero-card">
+      <div class="hero-content">
+        <span class="hero-badge">সরাসরি বাগান থেকে সংগৃহীত</span>
+        <h1>তাজা ও নির্ভেজাল ফলের নির্ভরযোগ্য বাজার</h1>
+        <p>ফরমালিন ও কেমিক্যালমুক্ত প্রিমিয়াম কোয়ালিটি ফলের সমাহার পৌঁছে দিচ্ছি আপনার দোরগোড়ায়।</p>
+        <a href="#products-section" class="btn-primary">সব ফল দেখুন <i class="fa-solid fa-arrow-down"></i></a>
+      </div>
+      <div class="hero-image-wrap">
+        <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=700&q=80" alt="Fresh Fruits" class="hero-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges -->
+  <section class="container trust-section">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <i class="fa-solid fa-truck-fast text-green"></i>
+        <div>
+          <h4>সুপারফাস্ট ডেলিভারি</h4>
+          <p>নিরাপদ হোম ডেলিভারি</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-certificate text-green"></i>
+        <div>
+          <h4>১০০% কেমিক্যালমুক্ত</h4>
+          <p>বাগান থেকে বাছাইকৃত তাজা ফল</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-hand-holding-dollar text-green"></i>
+        <div>
+          <h4>ক্যাশ অন ডেলিভারি</h4>
+          <p>পণ্য দেখে টাকা পরিশোধ</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-headset text-green"></i>
+        <div>
+          <h4>২৪/৭ সাপোর্ট</h4>
+          <p>সার্বক্ষণিক সেবা</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Filter -->
+  <section class="container categories-section">
+    <h2 class="section-title">জনপ্রিয় ক্যাটাগরি</h2>
+    <div class="category-chips" id="categoryChips">
+      <button class="chip active" onclick="filterCategory('all', this)">সবগুলো (All)</button>
+      <button class="chip" onclick="filterCategory('দেশি ফল', this)">দেশি ফল</button>
+      <button class="chip" onclick="filterCategory('আমদানিকৃত ফল', this)">আমদানিকৃত ফল</button>
+      <button class="chip" onclick="filterCategory('খেজুর ও ড্রাই ফ্রুটস', this)">খেজুর ও ড্রাই ফ্রুটস</button>
+      <button class="chip" onclick="filterCategory('ফ্রুট বক্স / প্যাকেজ', this)">ফ্রুট বক্স / প্যাকেজ</button>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <section id="products-section" class="container products-section">
+    <div class="section-header-flex">
+      <h2 class="section-title">আমাদের ফ্রেশ ফলসমূহ</h2>
+      <span class="live-status" id="productCountStatus">লোড হচ্ছে...</span>
+    </div>
+
+    <div id="loadingState" class="loading-state">
+      <div class="spinner"></div>
+      <p>তালিকা প্রস্তুত হচ্ছে...</p>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <!-- Order / Cart Drawer Modal -->
+  <div class="modal-overlay" id="cartModalOverlay" onclick="closeCartModal(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-basket-shopping text-green"></i> আপনার শপিং ব্যাগ</h3>
+        <button class="close-btn" onclick="closeCartModal()">&times;</button>
+      </div>
+
+      <div class="modal-body" id="cartItemList"></div>
+
+      <div class="modal-footer">
+        <div class="cart-summary">
+          <span>মোট বিল:</span>
+          <span class="total-price" id="cartTotalPrice">৳ ০</span>
+        </div>
+
+        <div class="checkout-form">
+          <label>আপনার নাম *</label>
+          <input type="text" id="custName" placeholder="উদাঃ রফিকুল ইসলাম" required>
+
+          <label>মোবাইল নম্বর *</label>
+          <input type="tel" id="custPhone" placeholder="উদাঃ 017XXXXXXXX" required>
+
+          <label>পূর্ণ ডেলিভারি ঠিকানা *</label>
+          <textarea id="custAddress" rows="2" placeholder="রোড, বাড়ি নম্বর, এলাকা ও জেলা" required></textarea>
+
+          <div class="checkout-buttons">
+            <button class="btn-whatsapp" onclick="checkoutWhatsApp()">
+              <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে অর্ডার পাঠান
+            </button>
+            <button class="btn-order-confirm" onclick="checkoutDirect()">
+              <i class="fa-solid fa-check-circle"></i> সরাসরি অর্ডার কনফার্ম করুন
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="logo text-white mb-2">
+          <div class="logo-icon bg-green"><i class="fa-solid fa-apple-whole"></i></div>
+          <span class="brand-name">Fruit<span class="highlight">Bazar</span></span>
+        </div>
+        <p class="footer-desc">সুস্থ জীবনের জন্য বাগান থেকে বাছাই করা ফরমালিনমুক্ত তাজা ফল আপনার দ্বারে পৌঁছে দেওয়াই FruitBazar-এর লক্ষ্য।</p>
+      </div>
+      <div class="footer-col">
+        <h4>জরুরি লিংক</h4>
+        <ul>
+          <li><a href="#">আমাদের গল্প</a></li>
+          <li><a href="#">ডেলিভারি পলিসি</a></li>
+          <li><a href="#">রিটার্ন শর্তাবলী</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>যোগাযোগ</h4>
+        <p><i class="fa-solid fa-phone text-green"></i> 01700-000000</p>
+        <p><i class="fa-brands fa-whatsapp text-green"></i> 01700-000000</p>
+        <p><i class="fa-solid fa-location-dot text-green"></i> ঢাকা, বাংলাদেশ</p>
+      </div>
+      <div class="footer-col">
+        <h4>পেমেন্ট সুবিধা</h4>
+        <p class="text-muted">ক্যাশ অন ডেলিভারি (COD), বিকাশ ও নগদ প্রযোজ্য।</p>
+        <div class="payment-badges">
+          <span>COD</span>
+          <span>bKash</span>
+          <span>Nagad</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© ২০২৬ FruitBazar. সর্বস্বত্ব সংরক্ষিত।</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
