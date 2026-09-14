@@ -1,7 +1,7 @@
 // ==========================================
 // ১. আপনার Google Sheet CSV লিংক নিচে বসান:
 // ==========================================
-const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT1gH-SAMPLE-KEY/pub?output=csv";
+const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT0O4t6-bzj-7dMxEyerBlQl1uKVcKNe6c3VvKI8y_mvET40ECbtL57q_OXf-Jha3EBWdcYm0zW_H_6/pubhtml";
 
 // ২. আপনার অর্ডার নেওয়ার WhatsApp নম্বর (বাংলাদেশি কোড 88 সহ):
 const WHATSAPP_PHONE = "8801700000000";
