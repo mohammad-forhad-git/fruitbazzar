@@ -65,6 +65,8 @@ async function fetchProducts() {
   try {
     if (GOOGLE_SHEET_CSV_URL && !GOOGLE_SHEET_CSV_URL.includes('SAMPLE-KEY')) {
       const response = await fetch(GOOGLE_SHEET_CSV_URL);
+      // এভাবে পরিবর্তন করুন (ক্যাশ এড়াতে):
+      const response = await fetch(`${GOOGLE_SHEET_CSV_URL}&t=${Date.now()}`);
       const csvText = await response.text();
       const parsedData = parseCSV(csvText);
 
